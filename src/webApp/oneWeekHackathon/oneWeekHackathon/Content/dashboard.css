@@ -1,0 +1,56 @@
+.container {
+    position: relative;
+    height: 100%;
+    padding: 0 30px;
+}
+
+.intro-dash {
+    position: relative;
+}
+
+    .intro-dash img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        transition: all 0.3s ease;
+        max-width: 450px;
+    }
+
+@media(max-width:991px) {
+    .intro-dash img {
+        width: 450px;
+        position: relative;
+        margin: 0 auto;
+    }
+} 
+ 
+@media(max-width:768px) {
+    .intro-dash img {
+        width: 250px;
+        position: relative;
+        margin: 0 auto;
+        bottom: -160px;
+    }
+}
+
+
+.btn {
+    display: inline-block;
+    font-family: 'Proxima Bold';
+    font-size: 18px;
+    padding: 15px 30px;
+    margin: 20px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+    .btn.btn-green {
+        background: #7cc576;
+        border: 3px solid #7cc576;
+        color: white;
+    }
+
+        .btn.btn-green:hover {
+            background: #96db90;
+            border-color: #96db90;
+        }

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="oneweekModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="business">
+    <Key>
+      <PropertyRef Name="businessId" />
+    </Key>
+    <Property Name="businessId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="businessName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="businessDesc" Type="varchar" MaxLength="1000" />
+    <Property Name="location" Type="geography" Nullable="false" />
+    <Property Name="modifiedDateTime" Type="datetime" />
+    <Property Name="createdDateTime" Type="date" />
+  </EntityType>
+  <EntityType Name="businessPrefernceMapping">
+    <Key>
+      <PropertyRef Name="businessPrefId" />
+    </Key>
+    <Property Name="businessPrefId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="businessId" Type="int" Nullable="false" />
+    <Property Name="preferenceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customerId" />
+    </Key>
+    <Property Name="customerId" Type="int" Nullable="false" />
+    <Property Name="userTag" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="emailId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="mobileNumber" Type="bigint" />
+    <Property Name="modifiedDateTime" Type="datetime" />
+    <Property Name="createdDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="customerPreferenceMapping">
+    <Key>
+      <PropertyRef Name="cusotmerPrefernceId" />
+    </Key>
+    <Property Name="cusotmerPrefernceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerId" Type="int" Nullable="false" />
+    <Property Name="preferenceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="location">
+    <Key>
+      <PropertyRef Name="locationId" />
+    </Key>
+    <Property Name="locationId" Type="int" Nullable="false" />
+    <Property Name="cusomterId" Type="int" Nullable="false" />
+    <Property Name="location" Type="geography" Nullable="false" />
+    <Property Name="modifiedDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="locationHistory">
+    <Key>
+      <PropertyRef Name="locationHistoryId" />
+    </Key>
+    <Property Name="locationHistoryId" Type="int" Nullable="false" />
+    <Property Name="customerLocationId" Type="int" Nullable="false" />
+    <Property Name="location" Type="geography" Nullable="false" />
+    <Property Name="dateTime" Type="datetime" />
+    <Property Name="action" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="preference">
+    <Key>
+      <PropertyRef Name="preferenceId" />
+    </Key>
+    <Property Name="preferenceId" Type="int" Nullable="false" />
+    <Property Name="prefernceName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_businessPrefernceMapping_business">
+    <End Role="business" Type="Self.business" Multiplicity="1" />
+    <End Role="businessPrefernceMapping" Type="Self.businessPrefernceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="business">
+        <PropertyRef Name="businessId" />
+      </Principal>
+      <Dependent Role="businessPrefernceMapping">
+        <PropertyRef Name="businessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_businessPrefernceMapping_preference">
+    <End Role="preference" Type="Self.preference" Multiplicity="1" />
+    <End Role="businessPrefernceMapping" Type="Self.businessPrefernceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="preference">
+        <PropertyRef Name="preferenceId" />
+      </Principal>
+      <Dependent Role="businessPrefernceMapping">
+        <PropertyRef Name="preferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customerLocation_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="1" />
+    <End Role="location" Type="Self.location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="location">
+        <PropertyRef Name="cusomterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customerPreferenceMapping_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="1" />
+    <End Role="customerPreferenceMapping" Type="Self.customerPreferenceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="customerPreferenceMapping">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customerPreferenceMapping_preference">
+    <End Role="preference" Type="Self.preference" Multiplicity="1" />
+    <End Role="customerPreferenceMapping" Type="Self.customerPreferenceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="preference">
+        <PropertyRef Name="preferenceId" />
+      </Principal>
+      <Dependent Role="customerPreferenceMapping">
+        <PropertyRef Name="preferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="oneweekModelStoreContainer">
+    <EntitySet Name="business" EntityType="Self.business" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="businessPrefernceMapping" EntityType="Self.businessPrefernceMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customerPreferenceMapping" EntityType="Self.customerPreferenceMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="location" EntityType="Self.location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="locationHistory" EntityType="Self.locationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="preference" EntityType="Self.preference" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_businessPrefernceMapping_business" Association="Self.FK_businessPrefernceMapping_business">
+      <End Role="business" EntitySet="business" />
+      <End Role="businessPrefernceMapping" EntitySet="businessPrefernceMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_businessPrefernceMapping_preference" Association="Self.FK_businessPrefernceMapping_preference">
+      <End Role="preference" EntitySet="preference" />
+      <End Role="businessPrefernceMapping" EntitySet="businessPrefernceMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customerLocation_customer" Association="Self.FK_customerLocation_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="location" EntitySet="location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customerPreferenceMapping_customer" Association="Self.FK_customerPreferenceMapping_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="customerPreferenceMapping" EntitySet="customerPreferenceMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customerPreferenceMapping_preference" Association="Self.FK_customerPreferenceMapping_preference">
+      <End Role="preference" EntitySet="preference" />
+      <End Role="customerPreferenceMapping" EntitySet="customerPreferenceMapping" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

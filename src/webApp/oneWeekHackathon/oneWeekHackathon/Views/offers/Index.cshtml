@@ -1,0 +1,51 @@
+﻿@model IEnumerable<oneWeekHackathon.Models.offer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ <hr/>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info btn-flat" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.business.businessName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offerTag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offerDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modifiedDateTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.business.businessName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.offerTag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.offerDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modifiedDateTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.offerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.offerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.offerId })
+        </td>
+    </tr>
+}
+
+</table>

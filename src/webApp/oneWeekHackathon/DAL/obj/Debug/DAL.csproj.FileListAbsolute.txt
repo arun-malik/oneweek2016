@@ -1,0 +1,9 @@
+F:\Projects\PersonalPetProjects\oneWeekHackathon\DAL\bin\Debug\DAL.dll.config
+F:\Projects\PersonalPetProjects\oneWeekHackathon\DAL\bin\Debug\DAL.dll
+F:\Projects\PersonalPetProjects\oneWeekHackathon\DAL\bin\Debug\DAL.pdb
+F:\Projects\PersonalPetProjects\oneWeekHackathon\DAL\bin\Debug\EntityFramework.dll
+F:\Projects\PersonalPetProjects\oneWeekHackathon\DAL\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projects\PersonalPetProjects\oneWeekHackathon\DAL\bin\Debug\EntityFramework.xml
+F:\Projects\PersonalPetProjects\oneWeekHackathon\DAL\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projects\PersonalPetProjects\oneWeekHackathon\DAL\obj\Debug\DAL.dll
+F:\Projects\PersonalPetProjects\oneWeekHackathon\DAL\obj\Debug\DAL.pdb

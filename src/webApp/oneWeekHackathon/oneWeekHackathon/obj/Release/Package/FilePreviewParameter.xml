@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="realtimeOffers" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\OneWeekHackathon\\vstfs\\oneWeekHackathon\\src\\webApp\\oneWeekHackathon\\oneWeekHackathon\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\OneWeekHackathon\\vstfs\\oneWeekHackathon\\src\\webApp\\oneWeekHackathon\\oneWeekHackathon\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="OneWeekDbContext-Web.config Connection String" description="" value="data source=hf9kwr8zlg.database.windows.net;initial catalog=oneweek;persist security info=True;user id=sqlAdmin;password=sql@1234;multipleactiveresultsets=True;application name=EntityFramework" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\OneWeekHackathon\\vstfs\\oneWeekHackathon\\src\\webApp\\oneWeekHackathon\\oneWeekHackathon\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='OneWeekDbContext']/@connectionString" />
+  </parameter>
+</parameters>

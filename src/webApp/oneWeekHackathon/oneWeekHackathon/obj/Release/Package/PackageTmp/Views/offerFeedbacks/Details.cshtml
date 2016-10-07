@@ -1,0 +1,43 @@
+﻿@model oneWeekHackathon.Models.offerFeedback
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>offerFeedback</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.userTag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer.userTag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offer.offerTag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offer.offerTag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.review)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.review)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.offerFeedbackId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

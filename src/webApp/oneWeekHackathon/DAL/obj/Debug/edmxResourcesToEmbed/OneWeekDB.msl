@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="oneweekModelStoreContainer" CdmEntityContainer="oneweekEntities">
+    <EntitySetMapping Name="businesses">
+      <EntityTypeMapping TypeName="oneweekModel.business">
+        <MappingFragment StoreEntitySet="business">
+          <ScalarProperty Name="businessId" ColumnName="businessId" />
+          <ScalarProperty Name="businessName" ColumnName="businessName" />
+          <ScalarProperty Name="businessDesc" ColumnName="businessDesc" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="modifiedDateTime" ColumnName="modifiedDateTime" />
+          <ScalarProperty Name="createdDateTime" ColumnName="createdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="businessPrefernceMappings">
+      <EntityTypeMapping TypeName="oneweekModel.businessPrefernceMapping">
+        <MappingFragment StoreEntitySet="businessPrefernceMapping">
+          <ScalarProperty Name="businessPrefId" ColumnName="businessPrefId" />
+          <ScalarProperty Name="businessId" ColumnName="businessId" />
+          <ScalarProperty Name="preferenceId" ColumnName="preferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="oneweekModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="userTag" ColumnName="userTag" />
+          <ScalarProperty Name="emailId" ColumnName="emailId" />
+          <ScalarProperty Name="mobileNumber" ColumnName="mobileNumber" />
+          <ScalarProperty Name="modifiedDateTime" ColumnName="modifiedDateTime" />
+          <ScalarProperty Name="createdDateTime" ColumnName="createdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customerPreferenceMappings">
+      <EntityTypeMapping TypeName="oneweekModel.customerPreferenceMapping">
+        <MappingFragment StoreEntitySet="customerPreferenceMapping">
+          <ScalarProperty Name="cusotmerPrefernceId" ColumnName="cusotmerPrefernceId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="preferenceId" ColumnName="preferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locations">
+      <EntityTypeMapping TypeName="oneweekModel.location">
+        <MappingFragment StoreEntitySet="location">
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="cusomterId" ColumnName="cusomterId" />
+          <ScalarProperty Name="location1" ColumnName="location" />
+          <ScalarProperty Name="modifiedDateTime" ColumnName="modifiedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locationHistories">
+      <EntityTypeMapping TypeName="oneweekModel.locationHistory">
+        <MappingFragment StoreEntitySet="locationHistory">
+          <ScalarProperty Name="locationHistoryId" ColumnName="locationHistoryId" />
+          <ScalarProperty Name="customerLocationId" ColumnName="customerLocationId" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="action" ColumnName="action" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="preferences">
+      <EntityTypeMapping TypeName="oneweekModel.preference">
+        <MappingFragment StoreEntitySet="preference">
+          <ScalarProperty Name="preferenceId" ColumnName="preferenceId" />
+          <ScalarProperty Name="prefernceName" ColumnName="prefernceName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
